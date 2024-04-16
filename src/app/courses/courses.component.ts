@@ -41,5 +41,47 @@ export class CoursesComponent {
       level: 'Intermediate',
       remarks: 'Closed',
     },
+    {
+      title: 'Artificial Intelligence: A Modern Approach',
+      instructor: 'Dr. Michael Wang',
+      duration: '12 weeks',
+      level: 'Advanced',
+      remarks: 'Open',
+    },
+    {
+      title: 'Software Engineering Principles',
+      instructor: 'Prof. Lisa Johnson',
+      duration: '8 weeks',
+      level: 'Intermediate',
+      remarks: 'Open',
+    },
+    {
+      title: 'Digital Marketing Fundamentals',
+      instructor: 'John Smith',
+      duration: '6 weeks',
+      level: 'Beginner',
+      remarks: 'Open',
+    },
+    {
+      title: 'Introduction to Psychology',
+      instructor: 'Dr. Anna White',
+      duration: '10 weeks',
+      level: 'Beginner',
+      remarks: 'Closed',
+    },
   ];
+
+  getAllCourses() {
+    return this.courses.length;
+  }
+  getAllBeginnerCourses() {
+    return this.courses.filter((course) => course.level === 'Beginner').length;
+  }
+  getAllIntermediateCourses() {
+    return this.courses.filter((course) => course.level === 'Intermediate')
+      .length;
+  }
+  getAllAdvancedCourses() {
+    return this.courses.filter((course) => course.level === 'Advanced').length;
+  }
 }
