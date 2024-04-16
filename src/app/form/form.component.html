@@ -23,7 +23,10 @@
         </h2>
       </div>
     </div>
-
+    <div class="notification p-4" [ngClass]="{ fadeout: displayNotification }">
+      <span>This website uses cookies for user better experience</span>
+      <button class="close" (click)="closeNotificaiton()">x</button>
+    </div>
     <div class="border-b border-gray-900/10 pb-12 p-10">
       <h2 class="text-base font-semibold leading-7 text-gray-900">
         Personal Information

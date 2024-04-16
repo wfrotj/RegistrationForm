@@ -1,0 +1,10 @@
+.close {
+  float: right;
+  border: 1px solid black;
+  padding: 2px;
+}
+.fadeout {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0s 2s, opacity 2s linear;
+}
