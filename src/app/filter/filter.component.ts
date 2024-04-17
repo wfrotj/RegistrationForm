@@ -10,4 +10,7 @@ export class FilterComponent {
   @Input() beginner: number = 0;
   @Input() intermediate: number = 0;
   @Input() advance: number = 0;
+
+  @Input() open: number = 0;
+  @Input() closed: number = 0;
 }

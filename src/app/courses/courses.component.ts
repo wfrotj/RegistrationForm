@@ -70,7 +70,6 @@ export class CoursesComponent {
       remarks: 'Closed',
     },
   ];
-
   getAllCourses() {
     return this.courses.length;
   }
@@ -83,5 +82,11 @@ export class CoursesComponent {
   }
   getAllAdvancedCourses() {
     return this.courses.filter((course) => course.level === 'Advanced').length;
+  }
+  getAllOpenCourses() {
+    return this.courses.filter((course) => course.remarks === 'Open').length;
+  }
+  getAllClosedCourses() {
+    return this.courses.filter((course) => course.remarks === 'Closed').length;
   }
 }
