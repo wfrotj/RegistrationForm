@@ -1,13 +1,12 @@
 <div class="text-center">
   <h2 class="font-extrabold text-4xl p-2">Courses</h2>
-  <app-search></app-search>
+  <app-search (inputTextChanged)="onSearchTextChanged($event)"></app-search>
   <app-filter
     [all]="getAllCourses()"
-    [beginner]="getAllBeginnerCourses()"
     [intermediate]="getAllIntermediateCourses()"
+    [beginner]="getAllBeginnerCourses()"
     [advance]="getAllAdvancedCourses()"
-    [open]="getAllOpenCourses()"
-    [closed]="getAllClosedCourses()"
+    (filterRadioButtonChange)="onFilterRadioButtonChanged($event)"
   ></app-filter>
   <div
     class="container flex justify-around items-center m-auto max-w-2xl mt-6 gap-4 mb-4"
@@ -23,35 +22,41 @@
           <th>Action</th>
         </tr>
       </thead>
-      <tbody
-        *ngFor="let course of courses"
-        id="course-list"
-        [ngStyle]="{
+      <!-- courseCountRadioButtonChange === 'All' ||
+      courseCountRadioButtonChange === course.level -->
+      <ng-container *ngFor="let course of courses" id="course-list">
+        <tbody
+          *ngIf="
+            searchText === '' ||
+            course.title.toLocaleLowerCase().includes(searchText)
+          "
+          [ngStyle]="{
           background: course.remarks === 'Open' ? 'white' : 'gray',
 
         }"
-      >
-        <td>{{ course.title }}</td>
-        <td>{{ course.instructor }}</td>
-        <td>{{ course.duration }}</td>
-        <td>
-          {{ course.level }}
-        </td>
-        <td>{{ course.remarks }}</td>
-
-        <td
-          [ngStyle]="{
-            background: course.remarks === 'Open' ? 'green' : 'orange'
-          }"
         >
-          <ng-container *ngIf="course.remarks === 'Open'; else notifyme">
-            <button>Enroll Now</button>
-          </ng-container>
-          <ng-template #notifyme>
-            <button>Notify Me</button>
-          </ng-template>
-        </td>
-      </tbody>
+          <td>{{ course.title }}</td>
+          <td>{{ course.instructor }}</td>
+          <td>{{ course.duration }}</td>
+          <td>
+            {{ course.level }}
+          </td>
+          <td>{{ course.remarks }}</td>
+
+          <td
+            [ngStyle]="{
+              background: course.remarks === 'Open' ? 'green' : 'orange'
+            }"
+          >
+            <button *ngIf="course.remarks === 'Open'; else notifyme">
+              Enroll Now
+            </button>
+            <ng-template #notifyme>
+              <button>Notify Me</button>
+            </ng-template>
+          </td>
+        </tbody>
+      </ng-container>
     </table>
   </div>
 </div>

@@ -2,23 +2,59 @@
   <div class="filter-container flex flex-row justify-center gap-4">
     <span>Filter:</span>
 
-    <input type="radio" name="filter" value="All" />
+    <input
+      type="radio"
+      name="filter"
+      value="All"
+      [(ngModel)]="selectedRadioButtonValue"
+      (change)="onradioButtonSelectionChange()"
+    />
     <span>{{ "All (" + all + ")" }}</span>
 
-    <input type="radio" name="filter" value="Available" />
+    <input
+      type="radio"
+      name="filter"
+      value="Beginner"
+      [(ngModel)]="selectedRadioButtonValue"
+      (change)="onradioButtonSelectionChange()"
+    />
     <span>{{ "Beginner (" + beginner + ")" }}</span>
 
-    <input type="radio" name="filter" value="Intermediate" />
+    <input
+      type="radio"
+      name="filter"
+      value="Intermediate"
+      [(ngModel)]="selectedRadioButtonValue"
+      (change)="onradioButtonSelectionChange()"
+    />
     <span>{{ "Intermediate (" + intermediate + ")" }}</span>
 
-    <input type="radio" name="filter" value="Advanced" />
+    <input
+      type="radio"
+      name="filter"
+      value="Advanced"
+      [(ngModel)]="selectedRadioButtonValue"
+      (change)="onradioButtonSelectionChange()"
+    />
     <span>{{ "Advanced (" + advance + ")" }}</span>
   </div>
-  <div class="filter-container flex flex-row justify-center gap-4">
-    <input type="radio" name="filter" value="Open" />
+  <!-- <div class="filter-container flex flex-row justify-center gap-4">
+    <input
+      type="radio"
+      name="remarks"
+      value="Open"
+      [(ngModel)]="selelectedRemarksRadioButtonValue"
+      (change)="onradioButtonRemarksChange()"
+    />
     <span>{{ "Open (" + open + ")" }}</span>
 
-    <input type="radio" name="filter" value="Closed" />
+    <input
+      type="radio"
+      name="remarks"
+      value="Closed"
+      [(ngModel)]="selelectedRemarksRadioButtonValue"
+      (change)="onradioButtonRemarksChange()"
+    />
     <span>{{ "Closed (" + closed + ")" }}</span>
-  </div>
+  </div> -->
 </div>

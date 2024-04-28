@@ -83,10 +83,23 @@ export class CoursesComponent {
   getAllAdvancedCourses() {
     return this.courses.filter((course) => course.level === 'Advanced').length;
   }
-  getAllOpenCourses() {
-    return this.courses.filter((course) => course.remarks === 'Open').length;
+  // getAllOpenCourses() {
+  //   return this.courses.filter((course) => course.remarks === 'Open').length;
+  // }
+  // getAllClosedCourses() {
+  //   return this.courses.filter((course) => course.remarks === 'Closed').length;
+  // }
+
+  courseCountRadioButtonChange: string = 'All';
+  // courseCountRemarksRadioButtonChange: string = '';
+  searchText: string = '';
+  onFilterRadioButtonChanged(data: string) {
+    this.courseCountRadioButtonChange = data;
   }
-  getAllClosedCourses() {
-    return this.courses.filter((course) => course.remarks === 'Closed').length;
+  // onFilterRemarksRadioButtonChanged(data: string) {
+  //   this.courseCountRemarksRadioButtonChange = data;
+  // }
+  onSearchTextChanged(searchValue: string) {
+    this.searchText = searchValue;
   }
 }
